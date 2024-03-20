@@ -36,9 +36,10 @@ def add_nsg_rule(group_name, resource_group_name, num_rules, subscription_id):
         rule_poller = network_client.security_rules.begin_create_or_update(
             resource_group_name, group_name, f'NSG_Rule_{i+1}', security_rule)
         rule = rule_poller.result()
+        print(f"Ingress rule {i+1} added to network security group")
 
 def main():
-    group_name = "Network Security Group"
+    group_name = "network-security-group-2"
     location = 'East US'
     resource_group_name = 'test-rg'
 
